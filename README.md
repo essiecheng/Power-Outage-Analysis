@@ -1,4 +1,4 @@
-# Power Outages Analysis
+# ⚡Power Outages Analysis⚡
 This is a project for DSC 80 at UCSD.
 
 **Name**: Essie Cheng
@@ -6,3 +6,4 @@ This is a project for DSC 80 at UCSD.
 **Website Link**: https://essiecheng.github.io/Power-Outage-Analysis/
 
 ## Introduction
+
