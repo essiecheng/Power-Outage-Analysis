@@ -33,5 +33,10 @@ The following was done to clean the data:
 - Keep relevant columns: all columns are dropped except for the relevant columns listed above.
 - Typcasting: All columns are stored as strings, but it would make more sense for numerical information to be stored as floats. The power outages start date and time were merged into one pd.Timestamp column, and power outages restoration date and time were merged into one pd.Timestamp column.
 
+The resulting dataframe has 1534 rows and 14 columns.
+
 ### Univariate Analysis
-#### Summary Statistics
+#### 'CLIMATE.REGION' Distribution
+A barchart was created to get an idea of the distribution of climate regions.
+<iframe src="climate_regions_dist.html" width=800 height=600 frameBorder=0></iframe>
+
