@@ -40,3 +40,10 @@ The resulting dataframe has 1534 rows and 14 columns.
 A barchart was created to get an idea of the distribution of climate regions.
 <iframe src="climate_regions_dist.html" width=800 height=600 frameBorder=0></iframe>
 
+#### 'OUTAGE.DURATION' Distribution
+A histogram was created to get an idea of the distribution outage durations.
+<iframe src="outage_duration_dist.html" width=800 height=600 frameBorder=0></iframe>
+The histogram appears to be heavily skewed right with some outliers of extreme outage durations.
+
+A choropleth was also created to look at the distribution of average outage duration, per state. It's important to note that the average durations may be skewed higher because of the outliers of longer outage durations.
+
