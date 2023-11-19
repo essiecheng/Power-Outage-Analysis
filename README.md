@@ -46,4 +46,23 @@ A histogram was created to get an idea of the distribution outage durations.
 The histogram appears to be heavily skewed right with some outliers of extreme outage durations.
 
 A choropleth was also created to look at the distribution of average outage duration, per state. It's important to note that the average durations may be skewed higher because of the outliers of longer outage durations.
+<iframe src="choropleth.html" width=800 height=600 frameBorder=0></iframe>
+Indeed, it appears that similar average durations appear in the same regions. For example, higher mean power outage durations are generally distributed among areas such as New York, New Jersey, and West Virgina, all of which are in the northwest region. Lower mean power outage durations are generally distributed among areas such as Montana, Wyoming, and South Dakota, all of which are in the west north central region. Thus, the bivariate analysis will illustrate the relationship between 'OUTAGE.DURATION' and 'CLIMATE.REGION'.
+
+### Bivariate Analysis
+#### Outage Duration and Climate Region
+In the bivariate analysis, we'll use more course granularity in outage duration and use the mean outage duration by state instead in order to avoid noisy visualization and make it easier to identify patterns and understand bigger-picture trends between climate regions.
+<iframe src="boxplots.html" width=800 height=600 frameBorder=0></iframe>
+Most notable is the East North Central climate region boxplot, as it has the highest median and largest max for mean outage duration of states in that region, suggesting that outage durations are longer in that climate region. Although the Northeast and Central regions have a relatively low median, they have a more skewed distribution and wider spread, indicating that they could be prone to longer outage durations.
+
+#### Outage Duration and Customers Affected
+Observations from the previous choropleth about similar average durations generally being distributed in the same regions indicate another possible relationship between outage duration and customers affected, as some regions are more densly populated than others. For example, lower mean power outage durations are generally distributed among areas such as Idaho, Wyoming, and Montana, all of which are less populated areas. A scatterplot is thus used to observe the relationship between 'OUTAGE.DURATION' and 'CUSTOMERS.AFFECTED'.
+<iframe src="scatterplot.html" width=800 height=600 frameBorder=0></iframe>
+The association between average outage duration and average number of customers affected appears to be positive and somewhat linear, with a few outliers. The scatterplot indicates that generally the longer the outage duration, the more customers affected.
+
+### Interesting Aggregates
+#### Outage Duration, Climate Region, and Month
+In addition to investigating where longer power outages occur, we can also investigate when the outages tend to be longer using a pivot table.
+
+One observation is that colder months seem most frequent for major power outages, as the longest outage durations occur during fall and winter months for several regions (Central, East North Central, West, Northwest, Southeast). Another notable observation is that the West North Central region row contains many NaN values, indicating that power outages occur much less frequently in that region (as many months don't have data). This makes sense as the months that do have data display very short outage durations in comparison to other regions.
 
