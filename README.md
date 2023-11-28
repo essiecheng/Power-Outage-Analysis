@@ -78,11 +78,11 @@ In addition to investigating where longer power outages occur, it can also inves
 One observation is that colder months seem most frequent for major power outages, as the longest outage durations occur during fall and winter months for several regions (Central, East North Central, West, Northwest, Southeast). Another notable observation is that the West North Central region row contains many NaN values, indicating that power outages occur much less frequently in that region (as many months don't have data). This makes sense as the months that do have data display very short outage durations in comparison to other regions.
 
 #### Outage Duration, Climate Region, and Causes
-We can also compare the average outage duration in each region with the causes behind those outages, which can reveal what kind of recovery resources to focus on for each region.
+The average outage duration in each region can also be compared with the causes behind those outages, which can reveal what kind of recovery resources to focus on for each region.
 
 It can be seen that the East North Central region faces the longest power outages, particularly due to equipment failure and fuel supply emergency. In the Southwest region though, those causes played much less of a role and the longest power outages were due to severe weather instead.
 
-It's worth noting that the columns we worked with in our EDA contained NaN values that have not been dealt with yet, which may have implications on our analyses that skew/bias our results. We will thus assess missingness next.
+It's worth noting that the columns worked with in the EDA contained NaN values that have not been dealt with yet, which may have implications on analyses that skew/bias results. Missingness will thus be assessed next.
 
 ## Assessment of Missingness
 ### NMAR Analysis
