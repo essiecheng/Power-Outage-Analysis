@@ -29,7 +29,7 @@ Finding regional patterns of where severe power outages may occur can provide cr
 ## Cleaning and EDA
 ### Data Cleaning
 The following was done to clean the data:
-- Fix formatting: it appears that due to formatting issues from converting the xlsx file to a csv file, the first 4 rows of the resulting dataframe were all NaN values and the correct column column names appeared in row 5. Those rows were dropped and the column names were reassigned.
+- Fix formatting: it appears that due to formatting issues from converting the xlsx file to a csv file, the first 4 rows of the resulting dataframe were all NaN values and the correct column names appeared in row 5. Those rows were dropped and the column names were reassigned.
 - Keep relevant columns: all columns are dropped except for the relevant columns listed above.
 - Typcasting: All columns are stored as strings, but it would make more sense for numerical information to be stored as floats. The power outages start date and time were merged into one pd.Timestamp column, and power outages restoration date and time were merged into one pd.Timestamp column.
 
@@ -40,6 +40,8 @@ The resulting dataframe has 1534 rows and 14 columns.
 A barchart was created to get an idea of the distribution of climate regions.
 
 <iframe src="climate_regions_dist.html" width=800 height=600 frameBorder=0></iframe>
+
+The Northeast region appears to be the most prevalent region with power outages in the data set, and the West North Central region least.
 
 #### 'OUTAGE.DURATION' Distribution
 A histogram was created to get an idea of the distribution outage durations.
@@ -71,7 +73,7 @@ The association between average outage duration and average number of customers 
 
 ### Interesting Aggregates
 #### Outage Duration, Climate Region, and Month
-In addition to investigating where longer power outages occur, we can also investigate when the outages tend to be longer using a pivot table.
+In addition to investigating where longer power outages occur, it can also investigated when the outages tend to be longer using a pivot table.
 
 One observation is that colder months seem most frequent for major power outages, as the longest outage durations occur during fall and winter months for several regions (Central, East North Central, West, Northwest, Southeast). Another notable observation is that the West North Central region row contains many NaN values, indicating that power outages occur much less frequently in that region (as many months don't have data). This makes sense as the months that do have data display very short outage durations in comparison to other regions.
 
@@ -151,6 +153,7 @@ There are only 6 NaN values in 'CLIMATE.REGION', a trivial portion of the datase
 
 #### Testing
 The result:
+
 | Region      | P-value | Reject Null Hypothesis |
 | ----------- | ----------- | ----------- |
 | East North Central      | 1.0       | False       |
