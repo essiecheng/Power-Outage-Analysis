@@ -1,5 +1,5 @@
 # ⚡Power Outages Analysis⚡
-This is a project for DSC 80 at UCSD.
+This is a project for DSC 80 at UCSD. hello
 
 **Name**: Essie Cheng
 
