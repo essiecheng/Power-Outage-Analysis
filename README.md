@@ -166,7 +166,7 @@ A pivot table and histogram will be used to compare the two distributions:
 | normal            | 0.484317                 | 0.496599                |
 | warm              | 0.212177                 | 0.176871                |
 
-<iframe src="affected_cause_emperical.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="affected_vs_climate.html" width=800 height=600 frameBorder=0></iframe>
 
 The distribution of climate category appears to be very similar, indicating the missingness of 'CUSTOMERS.AFFECTED' is not dependent on 'CLIMATE.CATEGORY'.
 
