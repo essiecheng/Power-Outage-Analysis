@@ -75,7 +75,7 @@ The association between average outage duration and average number of customers 
 #### Outage Duration, Climate Region, and Month
 In addition to investigating where longer power outages occur, it can also investigated when the outages tend to be longer using a pivot table.
 
-| CLIMATE.REGION        | 1.0          | 2.0          | 3.0          | 4.0          | 5.0          | 6.0          | 7.0          | 8.0          | 9.0          | 10.0         | 11.0         | 12.0         |
+| CLIMATE.REGION        | MONTH              | 1.0          | 2.0          | 3.0          | 4.0          | 5.0          | 6.0          | 7.0          | 8.0          | 9.0          | 10.0         | 11.0         | 12.0         |
 |------------------------|---------------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|
 | Central                | 5320.42           | 3728.60      | 709.80       | 2621.21      | 2924.45      | 2112.77      | 1412.07      | 1500.75      | 5428.29      | 4355.00      | 1634.30      | 1110.38      |
 | East North Central     | 10983.25          | 2728.80      | 13200.40     | 4592.91      | 7395.80      | 4457.40      | 3136.10      | 2730.92      | 3908.89      | 3356.43      | 4442.56      | 4213.70      |
