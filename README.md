@@ -73,7 +73,7 @@ The association between average outage duration and average number of customers 
 
 ### Interesting Aggregates
 #### Outage Duration, Climate Region, and Month
-In addition to investigating where longer power outages occur, it can also investigated when the outages tend to be longer using a pivot table.
+In addition to investigating where longer power outages occur, it can also investigated when the outages tend to be longer using a pivot table. (The column headers represent the month from 'MONTH' i.e. 1.0 = January)
 
 | CLIMATE.REGION        | 1.0          | 2.0          | 3.0          | 4.0          | 5.0          | 6.0          | 7.0          | 8.0          | 9.0          | 10.0         | 11.0         | 12.0         |
 |------------------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|
@@ -87,14 +87,22 @@ In addition to investigating where longer power outages occur, it can also inves
 | West                 | 3903.62      | 1543.32      | 3540.24      | 853.31       | 342.73       | 504.78       | 992.78       | 382.58       | 337.00       | 2048.41      | 1410.17      | 2687.52      |
 | West North Central   | NaN          | NaN          | 56.00        | NaN          | 0.00         | 40.40        | NaN          | 100.00       | NaN          | 106.00       | 30.50        | 5160.00      |
 
-
-
-
-
 One observation is that colder months seem most frequent for major power outages, as the longest outage durations occur during fall and winter months for several regions (Central, East North Central, West, Northwest, Southeast). Another notable observation is that the West North Central region row contains many NaN values, indicating that power outages occur much less frequently in that region (as many months don't have data). This makes sense as the months that do have data display very short outage durations in comparison to other regions.
 
 #### Outage Duration, Climate Region, and Causes
-The average outage duration in each region can also be compared with the causes behind those outages, which can reveal what kind of recovery resources to focus on for each region.
+The average outage duration in each region can also be compared with the causes behind those outages, which can reveal what kind of recovery resources to focus on for each region. (The column headers are cause categories from 'CAUSE.CATEGORY')
+
+| CLIMATE.REGION        | equipment failure | fuel supply emergency | intentional attack | islanding | public appeal | severe weather | system operability disruption |
+|------------------------|-------------------|------------------------|--------------------|-----------|----------------|----------------|--------------------------------|
+| Central                | 322.000000        | 10035.250000           | 346.058824         | 125.333333| 1410.000000    | 3250.007519    | 2695.200000                    |
+| East North Central     | 26435.333333      | 33971.250000           | 2376.050000        | 1.000000  | 733.000000     | 4434.817308    | 2610.000000                    |
+| Northeast             | 215.800000        | 14629.571429           | 195.984733         | 881.000000| 2655.000000    | 4429.902857    | 773.500000                     |
+| Northwest              | 702.000000        | 1.000000               | 373.811765         | 73.333333 | 898.000000     | 4838.000000    | 141.000000                     |
+| South                 | 295.777778        | 17482.500000           | 325.607143         | 493.500000| 1163.976190    | 4391.349057    | 866.074074                     |
+| Southeast              | 554.500000        | NaN                    | 504.666667         | NaN       | 2865.400000    | 2662.560345    | 169.312500                     |
+| Southwest              | 113.800000        | 76.000000              | 265.672131         | 2.000000  | 2275.000000    | 11572.900000   | 329.222222                     |
+| West                  | 524.809524        | 6154.600000            | 857.677419         | 214.857143| 2028.111111    | 2928.373134    | 363.666667                     |
+| West North Central     | 61.000000         | NaN                    | 23.500000          | 68.200000 | 439.500000     | 2442.500000    | NaN                            |
 
 It can be seen that the East North Central region faces the longest power outages, particularly due to equipment failure and fuel supply emergency. In the Southwest region though, those causes played much less of a role and the longest power outages were due to severe weather instead.
 
@@ -108,7 +116,19 @@ NMAR (not missing at random) missingness is where the missingness of the missing
 A column with non-trivial missingness is 'CUSTOMERS.AFFECTED'. The missingness of this column is analyzed by performing permutation tests to analyze whether the column missingness depends on 'CAUSE.CATEGORY' and whether it depends on 'TOTAL.CUSTOMERS'
 
 #### 'CUSTOMERS.AFFECTED' vs 'CAUSE.CATEGORY'
-A column with non-trivial missingness is 'CUSTOMERS.AFFECTED'. We'll analyze the missingness of this column by performing permutation tests to analyze whether the column missingness depends on 'CAUSE.CATEGORY' and whether it depends on 'TOTAL.CUSTOMERS'
+A pivot table and bar graph will be used to compare the two distributions:
+- The distribution of 'CAUSE.CATEGORY' when 'CUSTOMERS.AFFECTED' is missing.
+- The distribution of 'CAUSE.CATEGORY' when 'CUSTOMERS.AFFECTED' is missing.
+
+| CAUSE.CATEGORY                   | affected_missing = False | affected_missing = True  |
+|----------------------------------|--------------------------|--------------------------|
+| equipment failure                | 0.027498                 | 0.067720                 |
+| fuel supply emergency            | 0.006416                 | 0.099323                 |
+| intentional attack               | 0.182401                 | 0.494357                 |
+| islanding                        | 0.031164                 | 0.027088                 |
+| public appeal                    | 0.019248                 | 0.108352                 |
+| severe weather                   | 0.657195                 | 0.103837                 |
+| system operability disruption    | 0.076077                 | 0.099323                 |
 
 <iframe src="affected_vs_cause.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -128,6 +148,15 @@ A permutation test will be used to analyze the dependency of the missingness.
 The resulting p-value of 0.0 leads us to reject the null hypothesis and conclude that the missingness of 'CUSTOMERS.AFFECTED' is dependent on 'CAUSE.CATEGORY'.
 
 #### 'CUSTOMERS.AFFECTED' vs 'CLIMATE.CATEGORY'
+A pivot table and histogram will be used to compare the two distributions:
+- The distribution of 'CLIMATE.CATEGORY' when 'CUSTOMERS.AFFECTED' is missing.
+- The distribution of 'CLIMATE.CATEGORY' when 'CUSTOMERS.AFFECTED' is missing.
+
+| CLIMATE.CATEGORY | affected_missing = False | affected_missing = True |
+|-------------------|--------------------------|-------------------------|
+| cold              | 0.303506                 | 0.326531                |
+| normal            | 0.484317                 | 0.496599                |
+| warm              | 0.212177                 | 0.176871                |
 
 <iframe src="affected_cause_emperical.html" width=800 height=600 frameBorder=0></iframe>
 
