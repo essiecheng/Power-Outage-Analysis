@@ -33,7 +33,15 @@ The following was done to clean the data:
 - Keep relevant columns: all columns are dropped except for the relevant columns listed above.
 - Typcasting: All columns are stored as strings, but it would make more sense for numerical information to be stored as floats. The power outages start date and time were merged into one pd.Timestamp column, and power outages restoration date and time were merged into one pd.Timestamp column.
 
-The resulting dataframe has 1534 rows and 14 columns.
+The resulting dataframe has 1534 rows and 14 columns. The first 5 rows of the dataframe look like: 
+
+| U.S._STATE | POSTAL.CODE | NERC.REGION | CLIMATE.REGION | OUTAGE.START           | OUTAGE.RESTORATION      | OUTAGE.DURATION | YEAR | MONTH | CAUSE.CATEGORY   | CAUSE.CATEGORY.DETAIL | CLIMATE.CATEGORY | CUSTOMERS.AFFECTED | TOTAL.CUSTOMERS |
+|------------|-------------|-------------|-----------------|------------------------|-------------------------|------------------|------|-------|------------------|-----------------------|-------------------|---------------------|------------------|
+| Minnesota  | MN          | MRO         | East North Central | 2011-07-01 17:00:00   | 2011-07-03 20:00:00    | 3060.0           | 2011 | 7.0   | severe weather   | NaN                   | normal            | 70000.0             | 2595696          |
+| Minnesota  | MN          | MRO         | East North Central | 2014-05-11 18:38:00   | 2014-05-11 18:39:00    | 1.0              | 2014 | 5.0   | intentional attack | vandalism             | normal            | NaN                 | 2640737          |
+| Minnesota  | MN          | MRO         | East North Central | 2010-10-26 20:00:00   | 2010-10-28 22:00:00    | 3000.0           | 2010 | 10.0  | severe weather   | heavy wind            | cold              | 70000.0             | 2586905          |
+| Minnesota  | MN          | MRO         | East North Central | 2012-06-19 04:30:00   | 2012-06-20 23:00:00    | 2550.0           | 2012 | 6.0   | severe weather   | thunderstorm          | normal            | 68200.0             | 2606813          |
+| Minnesota  | MN          | MRO         | East North Central | 2015-07-18 02:00:00   | 2015-07-19 07:00:00    | 1740.0           | 2015 | 7.0   | severe weather   | NaN                   | warm              | 250000.0            | 2673531          |
 
 ### Univariate Analysis
 #### 'CLIMATE.REGION' Distribution
