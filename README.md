@@ -151,8 +151,6 @@ A permutation test will be used to analyze the dependency of the missingness.
 
 **Significance level**: 0.05
 
-<iframe src="affected_cause_emperical.html" width=800 height=600 frameBorder=0></iframe>
-
 The resulting p-value of 0.0 leads us to reject the null hypothesis and conclude that the missingness of 'CUSTOMERS.AFFECTED' is dependent on 'CAUSE.CATEGORY'.
 
 #### 'CUSTOMERS.AFFECTED' vs 'CLIMATE.CATEGORY'
@@ -184,12 +182,12 @@ A permutation test will be used to analyze the dependency of the missingness.
 
 The resulting p-value of 0.3504 leads us to fail to reject the null hypothesis and conclude that the missingness of 'CLIMATE.AFFECTED' is not dependent on 'CLIMATE.CATEGORY'.
 
-Because the missingness of 'CUSTOMERS.AFFECTED' depended on at least 1 column ('CAUSE.CATEGORY'), we conclude that the overall missingness of 'CUSTOMERS.AFFECTED' is MAR (missing at random)
+Because the missingness of 'CUSTOMERS.AFFECTED' depended on at least 1 column ('CAUSE.CATEGORY'), it can be concluded that the overall missingness of 'CUSTOMERS.AFFECTED' is MAR (missing at random).
 
 ## Hypothesis Testing
 Now that we have an understanding and assessment of our data, we can address our question: **Are certain locations more prone to major outages?**
 
-We will define **major outages** as outage durations above the national average duration. More specifically, we'd like to determine which climate regions have longer-than-average power outages more frequently. To do so, we will perform hypothesis tests for each of the climate regions using the following hypotheses:
+**Major outages** will be defined as as outage durations above the national average duration. More specifically, the goal is to determine which climate regions have longer-than-average power outages more frequently. To do so, hypothesis tests will be performed for each of the climate regions using the following hypotheses:
 
 **Null hypothesis**: The region's proportion of major outages is equal to the national proportion of major outages.
 
